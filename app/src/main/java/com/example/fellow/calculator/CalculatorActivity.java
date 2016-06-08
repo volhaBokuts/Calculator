@@ -5,11 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener{
 
-    TextView calcField, inputField;
+    EditText calcField, inputField;
     Button clear, negative, percent, divide, multiply, minus, plus, equal, point;
     Button one, two, three, four, five, six, seven, eight, nine, zero;
 
@@ -20,9 +21,8 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
-        inputField = (TextView) findViewById(R.id.result);
+        inputField = (EditText) findViewById(R.id.result);
         clear = (Button) findViewById(R.id.clear);
-        clear.setOnClickListener(this);
         divide = (Button) findViewById(R.id.divide);
         divide.setOnClickListener(this);
         multiply = (Button) findViewById(R.id.multiply);
@@ -92,7 +92,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    public void onClickClear(View button) {
+    public void onClickClear(View v) {
         inputField.setText("0");
     }
 }
