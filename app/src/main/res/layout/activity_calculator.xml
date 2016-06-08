@@ -18,7 +18,7 @@
         android:layout_column="0" />
 
     <TextView
-        android:layout_gravity="end|center_vertical"
+        android:layout_gravity="left|center_vertical"
         android:text="@string/result"
         android:textColor="#ffffff"
         android:textSize="42sp"
