@@ -12,6 +12,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:background">#352F2F</item>
+        <item name="android:onClick">onNumberClick</item>
     </style>
 
     <style name="OperationButton">

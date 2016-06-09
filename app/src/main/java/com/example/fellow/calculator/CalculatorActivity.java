@@ -16,7 +16,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
     Button btOne, btTwo, btThree, btFour, btFive, btSix, btSeven, btEight, btNine, btZero;
 
     /// Объявление переменных, хранящих значения операндов и результат
-    int operand1, operand2;
+    int operand1, operand2, operationNum;
     double result;
 
     @Override
@@ -66,6 +66,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         operand1 = 0;
         operand2 = 0;
         result = 0;
+        operationNum = 0;
 
     }
 
@@ -73,39 +74,84 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.one:
-                inputField.setText("1");
+                onNumberClick(1);
                 break;
             case R.id.two:
-                inputField.setText("2");
+                onNumberClick(2);
                 break;
             case R.id.three:
-                inputField.setText("3");
+                onNumberClick(3);;
                 break;
             case R.id.four:
-                inputField.setText("4");
+                onNumberClick(4);;
                 break;
             case R.id.five:
-                inputField.setText("5");
+                onNumberClick(5);;
                 break;
             case R.id.six:
-                inputField.setText("6");
+                onNumberClick(6);;
                 break;
             case R.id.seven:
-                inputField.setText("7");
+                onNumberClick(7);;
                 break;
             case R.id.eight:
-                inputField.setText("8");
+                onNumberClick(8);;
                 break;
             case R.id.nine:
-                inputField.setText("9");
+                onNumberClick(9);;
                 break;
             case R.id.zero:
-                inputField.setText("0");
+                onNumberClick(0);;
                 break;
+            case R.id.add:
+                if(operationNum == 0) operationNum = 1;
+               break;
+            case R.id.subtract:
+                if(operationNum == 0) operationNum = 2;
+                break;
+            case R.id.multiply:
+                if(operationNum == 0) operationNum = 3;
+                break;
+            case R.id.divide:
+                if(operationNum == 0) operationNum = 4;
+                break;
+            case R.id.equal:
+                switch(operationNum) {
+                    case 1:
+                        result = operand1 + operand2;
+                        inputField.setText(Double.toString(result));
+                        break;
+                    case 2:
+                        result = operand1 - operand2;
+                        inputField.setText(Double.toString(result));
+                        break;
+                    case 3:
+                        result = operand1 * operand2;
+                        inputField.setText(Double.toString(result));
+                        break;
+                    case 4:
+                        result = (double) operand1 / (double) operand2;
+                        inputField.setText(Double.toString(result));
+                        break;
+                }
+        }
+    }
+
+    private void onNumberClick(int num){
+        if(operationNum == 0){
+            operand1 = num;
+            inputField.setText(Integer.toString(operand1));
+        } else {
+            operand2 = num;
+            inputField.setText(Integer.toString(operand2));
         }
     }
 
     public void onClickClear(View v) {
         inputField.setText("0");
+        operand1 = 0;
+        operand2 = 0;
+        result = 0;
+        operationNum = 0;
     }
 }
