@@ -10,49 +10,62 @@ import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener{
 
-    EditText calcField, inputField;
-    Button clear, negative, percent, divide, multiply, minus, plus, equal, point;
-    Button one, two, three, four, five, six, seven, eight, nine, zero;
+    // Объявление текстового поля, кнопок
+    EditText inputField;
+    Button btClear, btDivide, btMultiply, btSubtract, btAdd, btEqual;
+    Button btOne, btTwo, btThree, btFour, btFive, btSix, btSeven, btEight, btNine, btZero;
 
-    enum Operation {DIVIDE, MULTIPLY, PLUS, MINUS, EQUALS};
+    /// Объявление переменных, хранящих значения операндов и результат
+    int operand1, operand2;
+    double result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
+        // Связывание текстовое поле и кнопки с макетом
         inputField = (EditText) findViewById(R.id.result);
-        clear = (Button) findViewById(R.id.clear);
-        divide = (Button) findViewById(R.id.divide);
-        divide.setOnClickListener(this);
-        multiply = (Button) findViewById(R.id.multiply);
-        multiply.setOnClickListener(this);
-        minus = (Button) findViewById(R.id.minus);
-        minus.setOnClickListener(this);
-        plus = (Button) findViewById(R.id.plus);
-        plus.setOnClickListener(this);
-        equal = (Button) findViewById(R.id.equal);
-        equal.setOnClickListener(this);
-        one = (Button) findViewById(R.id.one);
-        one.setOnClickListener(this);
-        two = (Button) findViewById(R.id.two);
-        two.setOnClickListener(this);
-        three = (Button) findViewById(R.id.three);
-        three.setOnClickListener(this);
-        four = (Button) findViewById(R.id.four);
-        four.setOnClickListener(this);
-        five = (Button) findViewById(R.id.five);
-        five.setOnClickListener(this);
-        six = (Button) findViewById(R.id.six);
-        six.setOnClickListener(this);
-        seven = (Button) findViewById(R.id.seven);
-        seven.setOnClickListener(this);
-        eight = (Button) findViewById(R.id.eight);
-        eight.setOnClickListener(this);
-        nine = (Button) findViewById(R.id.nine);
-        nine.setOnClickListener(this);
-        zero = (Button) findViewById(R.id.zero);
-        zero.setOnClickListener(this);
+
+        btClear = (Button) findViewById(R.id.clear);
+        btDivide = (Button) findViewById(R.id.divide);
+        btMultiply = (Button) findViewById(R.id.multiply);
+        btSubtract = (Button) findViewById(R.id.subtract);
+        btAdd = (Button) findViewById(R.id.add);
+        btEqual = (Button) findViewById(R.id.equal);
+
+        btOne = (Button) findViewById(R.id.one);
+        btTwo = (Button) findViewById(R.id.two);
+        btThree = (Button) findViewById(R.id.three);
+        btFour = (Button) findViewById(R.id.four);
+        btFive = (Button) findViewById(R.id.five);
+        btSix = (Button) findViewById(R.id.six);
+        btSeven = (Button) findViewById(R.id.seven);
+        btEight = (Button) findViewById(R.id.eight);
+        btNine = (Button) findViewById(R.id.nine);
+        btZero = (Button) findViewById(R.id.zero);
+
+        // Назначение кнопкам слушателя
+        btDivide.setOnClickListener(this);
+        btMultiply.setOnClickListener(this);
+        btAdd.setOnClickListener(this);
+        btSubtract.setOnClickListener(this);
+        btEqual.setOnClickListener(this);
+
+        btOne.setOnClickListener(this);
+        btTwo.setOnClickListener(this);
+        btThree.setOnClickListener(this);
+        btFour.setOnClickListener(this);
+        btSix.setOnClickListener(this);
+        btSeven.setOnClickListener(this);
+        btEight.setOnClickListener(this);
+        btNine.setOnClickListener(this);
+        btZero.setOnClickListener(this);
+
+        // Инициализация переменных для вычислеения
+        operand1 = 0;
+        operand2 = 0;
+        result = 0;
 
     }
 
