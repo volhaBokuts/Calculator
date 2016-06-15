@@ -23,8 +23,6 @@
     <style name="EqualButton">
         <item name="android:textSize">24sp</item>
         <item name="android:background">#99CC00</item>
-        <item name="android:enabled">false</item>
-        <item name="android:focusable">false</item>
     </style>
 
 </resources>
